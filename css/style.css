@@ -17,7 +17,6 @@ html {
 .container {
     width: calc(100vw - var(--spacing));
     margin: 0 auto;
-    position: relative;
 }
 
 header {
@@ -96,13 +95,58 @@ header div span {
     background-color: #333;
 }
 
+nav {
+    position: fixed;
+    z-index: 2;
+    top: 60px;
+    right: 100px;
+    height: fit-content;
+    width: 150px;
+    background-color: #1c2329;
+    border-left: 2px solid#F0E68C;
+    border-radius: 10px 0 0 10px;
+}
+
+nav ul {
+    list-style: none;
+    width: inherit;
+}
+
+nav ul li {
+    width: inherit; 
+    border-bottom: 2px solid#F0E68C;
+}
+
+nav ul li:last-child{
+    border-bottom: none;
+}
+
+nav ul li a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+    width: inherit;
+    text-align: center;
+    display: block;
+    margin: 0 auto;  
+    font-family: "Handlee", cursive;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #F0E68C;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
 main {
     width: inherit;
     position: relative;
     top: 100px;
 }
 
-main div:first-child {
+main > div:first-child {
     height: calc(100vh - 100px);
     background-image: linear-gradient(
         -45deg,
@@ -120,8 +164,12 @@ main div:first-child {
     align-items: center;
 }
 
-main div:last-child {
+main > div:last-child {
     margin-top: 30px;
+}
+
+main > div:last-child div {
+    padding-top: 40px;
 }
 
 main div:last-child section {
@@ -189,22 +237,24 @@ footer {
         width: 90%;
         margin: auto;
     }
+    nav {
+        right: 0;
+    }
 }
 
 /* small screen */
-@media (min-width: 768px) and (max-width: 991px) {
-    main div:first-child {
-        flex-direction: column;
-        font-size: 90px;
+@media (min-width: 768px) {
+    nav {
+        right: 100px;
     }
 }
 
 /* medium screen */
-@media (min-width: 992px) and (max-width: 1199px) {
-    /* no changes needed */
+@media (min-width: 992px) {
+    
 }
 
 /* large screen */
 @media (min-width: 1200px) {
-    /* no changes needed */
+
 }
