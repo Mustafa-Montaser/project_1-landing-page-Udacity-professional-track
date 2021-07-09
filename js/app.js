@@ -1,6 +1,37 @@
+/*
+    *detect which section is visible in viewport
+*/
+// creating new object of IntersectionObserver which detect if an element is visible in viewport or not
+// threshold is ratio of visibility of element in viewport
+var threshold_ = 0.7;
+if (screen.width < 767) threshold_ = 0.2; // mobile screen
+var observer = new IntersectionObserver(callback, { threshold: [threshold_] });
+// select targets (sections) to applay that method on each of them
+var targets = document.querySelectorAll(".sectionsContainer > div section");
+
+// calback function to make an action when detect element in viewport
+function callback(entries) {
+    // check if section is visible in viewport
+    if (entries[0].isIntersecting === true) {
+        entries[0]["target"].querySelector("h2").style.color = "#F0E68C";
+        entries[0]["target"].querySelector("h2").style.letterSpacing = "3px";
+        entries[0]["target"].style.backgroundImage = "linear-gradient( 94.3deg,  rgba(26,33,64,1) 10.9%, rgba(81,84,115,1) 87.1% )";
+        entries[0]["target"].querySelectorAll("p")[0].style.color = "#fff";
+        entries[0]["target"].querySelectorAll("p")[1].style.color = "#fff";
+    } else {
+        entries[0]["target"].querySelector("h2").style.color = "#fff";
+        entries[0]["target"].querySelector("h2").style.letterSpacing = "0";
+        entries[0]["target"].style.backgroundImage = "";
+        entries[0]["target"].querySelectorAll("p")[0].style.color = "#8da099";
+        entries[0]["target"].querySelectorAll("p")[1].style.color = "#8da099";
+    } 
+}
+
+
 // getting sections container and nav bar list
 var sectionsContainer = document.querySelector(".sectionsContainer");
 var navBarList = document.querySelector("nav ul");
+/////////////////////////////////////////////////////////////////////////////////////
 /*
     function to 1- create and add new section with its content as following
     h2 : header     hr : line     p : paragragh
@@ -35,28 +66,32 @@ function add_new_section(i) {
     section.appendChild(p1);
     section.appendChild(p2);
 
+    // applay observer for created section to be detected when is visible in viewport
+    observer.observe(section);
+
     // append section to div container
     divContainer.appendChild(section);
 
     // append div to the page
     sectionsContainer.appendChild(divContainer);
 
-    //adding link for each section in nav bar
+    //adding link for created section in nav bar
     let li = document.createElement("li");
     let a = document.createElement("a");
     a.setAttribute("href", "#sec" + i);
     a.textContent = "Section " + i;
     li.appendChild(a);
     navBarList.appendChild(li);
+
+    // check number of links in nav bar
+    check_nav_list();
 }
 //////////////////////////////////////////////////////////////////////////
 /*
     Adding three section at first when loading page. 
     and adding there links to nav bar
 */
-for (let i = 1; i <= 3; i++) {
-    add_new_section(i);
-}
+for (let i = 1; i <= 3; i++) add_new_section(i);
 ////////////////////////////////////////////////////////////////////////////////////
 /*
     setting for nav bar button and its click effect to nav bar
@@ -64,6 +99,7 @@ for (let i = 1; i <= 3; i++) {
 let navBarBtn = document.querySelector("#navBarBtn");
 navBarBtn.addEventListener("click", function () {
     if (navBarBtn.className == "navBarBtn") {
+        // change style of nav bar button and its spans for rotation and X shape
         navBarBtn.className = "navBarBtnClick";
         document.querySelector(".l1").className = "l1click";
         document.querySelector(".l2").className = "l2click";
@@ -85,8 +121,8 @@ let addNewSection = document.querySelector("#addNewSec");
 addNewSec.addEventListener("click", function () {
     let numerOfSections = document.querySelectorAll(".sectionsContainer div section").length;
     add_new_section(numerOfSections + 1);
-    check_nav_lists();
-    document.querySelectorAll("nav ul li a")[numerOfSections].click(); // to act as click on section link to scroll page to it
+    // applay click on section link to scroll page to it
+    document.querySelectorAll("nav ul li a")[numerOfSections].click(); 
 });
 /////////////////////////////////////////////////////////////////////////////////////
 /*
@@ -95,7 +131,7 @@ addNewSec.addEventListener("click", function () {
     *this check is just if you want to create more than 8 section using above for loop
     or when add new section more than 8 
 */
-function check_nav_lists() {
+function check_nav_list() {
     let numberOfAnchor = document.querySelectorAll("nav ul li").length;
     if (numberOfAnchor > 8) {
         document.querySelector("nav").style.height = "385px";
@@ -115,7 +151,7 @@ moveUp.addEventListener("click", function () {
 });
 /////////////////////////////////////////////////////////////////////////////////////
 /*
-    listen to window scroll event to display moveUp button
+    listen to window scroll event to display or not,  moveUp button
 */
 document.addEventListener("scroll", function(e) {
     if (window.scrollY >= 100) moveUp.style.display = "block";
