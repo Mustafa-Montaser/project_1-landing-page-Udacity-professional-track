@@ -15,84 +15,29 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container"> 
         <header>
-            <button id="btnAddSec">Add New Section</button>
-            <!-- <span>NO. of Sec. : 3</span> -->
-            <div>
-                <span></span>
-                <span></span>
-                <span></span>
+            <button id="addNewSec">Add New Section</button>
+            <div class="navBarBtn" id="navBarBtn">
+                <span class="l1"></span>
+                <span class="l2"></span>
+                <span class="l3"></span>
             </div>
         </header>
 
-        <nav>
+        <nav class="nav">
             <ul>
-                <li><a href="#sec1">section 1</a></li>
-                <li><a href="#sec2">section 2</a></li>
-                <li><a href="#sec3">section 3</a></li>
-                <li><a href="#sec4">section 4</a></li>
+                <!-- ul items created by js -->
             </ul>
         </nav>
 
         <main>
-            <div id="interface">
+            <div>
                 <span>Landing</span>&nbsp;&nbsp;<span>Page</span>
             </div>
 
-            <div>
-                <div id="sec1">
-                    <section>
-                        <h2>Section 1</h2>
-                        <hr>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ducimus numquam voluptate.
-                            Sit
-                            maiores, officia impedit doloribus necessitatibus commodi quaerat accusamus aspernatur,
-                            autem
-                            eius culpa ipsam recusandae illum dolores error.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ducimus numquam voluptate.
-                            Sit
-                            maiores, officia impedit doloribus necessitatibus commodi quaerat accusamus aspernatur,
-                            autem
-                            eius culpa ipsam recusandae illum dolores error.
-                        </p>
-                    </section>
-                </div>
-                <div id="sec2">
-                    <section>
-                        <h2>Section 2</h2>
-                        <hr>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ducimus numquam voluptate. Sit
-                            maiores, officia impedit doloribus necessitatibus commodi quaerat accusamus aspernatur, autem
-                            eius culpa ipsam recusandae illum dolores error.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ducimus numquam voluptate. Sit
-                            maiores, officia impedit doloribus necessitatibus commodi quaerat accusamus aspernatur, autem
-                            eius culpa ipsam recusandae illum dolores error.
-                        </p>
-                    </section>
-                </div>
-                <div id="sec3">
-                    <section>
-                        <h2>Section 3</h2>
-                        <hr>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ducimus numquam voluptate. Sit
-                            maiores, officia impedit doloribus necessitatibus commodi quaerat accusamus aspernatur, autem
-                            eius culpa ipsam recusandae illum dolores error.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ducimus numquam voluptate. Sit
-                            maiores, officia impedit doloribus necessitatibus commodi quaerat accusamus aspernatur, autem
-                            eius culpa ipsam recusandae illum dolores error.
-                        </p>
-                    </section>
-                </div>
+            <div class="sectionsContainer">
+                <!-- 3 section created by js when loading page -->
             </div>
         </main>
     </div>
@@ -101,6 +46,10 @@
         <span>Designed By M.M.Montaser</span>
     </footer>
 
+    <button id="moveUp">&#11165;</button>
+
+
+    <script src="js/app.js"></script>
 </body>
 
 </html>
