@@ -177,20 +177,20 @@ main > div:first-child {
     align-items: center;
 }
 
-main > div:last-child {
+main .sectionsContainer {
     margin-top: 30px;
 }
 
-main > div:last-child div {
+main .sectionsContainer div {
     padding-top: 40px;
 }
 
 main div:last-child section {
     margin-top: 30px;
-    padding: 40px;
+    padding: 100px 50px;
     border-radius: 15px;
     box-shadow: 0 0 10px #333;
-    background-color: #3b4956;;
+    background-color: #3b4956;
 }
 
 main div:last-child section h2 {
