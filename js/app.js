@@ -96,7 +96,7 @@ const add_new_section = i => {
     Adding three section at first when loading page. 
     and adding there links to nav bar
 */
-for (let i = 1; i <= 5; i++) add_new_section(i);
+for (let i = 1; i <= 3; i++) add_new_section(i);
 ////////////////////////////////////////////////////////////////////////////////////
 /*
     setting for nav bar button and its click effect to nav bar
@@ -160,7 +160,6 @@ document.addEventListener("scroll", (e) => {
 document.querySelectorAll("nav ul li a").forEach((a) => {
     a.addEventListener("click", (event) => {
     event.preventDefault();
-    // console.log(event.target.getAttribute("id"));
     document.querySelectorAll(".sectionsContainer div")[event.target.getAttribute("id") - 1].scrollIntoView({
         behavior: "smooth", 
         block: "start", 
